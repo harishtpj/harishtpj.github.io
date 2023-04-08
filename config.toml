@@ -1,3 +1,51 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://harishtpj.github.io/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'The Art of Math in Coding'
+theme = 'PaperMod'
+
+# Enables Home-info Mode
+[params.homeInfoParams]
+Title = 'The Art of Math in Coding'
+Content = """A Blog to express my discoveries and findings in **Math** and **Computer Science**"""
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/harishtpj"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:harishtpj@gmail.com"
+
+[[params.socialIcons]]
+name = "gitlab"
+url = "https://gitlab.com/harishtpj"
+
+# Main Menu
+[[menu.main]]
+name = "Search"
+url = "search/"
+weight = 10
+
+[[menu.main]]
+name = "Tags"
+url = "tags/"
+weight = 10
+
+[[menu.main]]
+name = "Posts"
+url = "posts/"
+weight = 10
+
+# Adds Search engine
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
+
+# Configuration for Pages
+[params]
+ShowShareButtons = true
+ShowReadingTime = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowToc = true
+TocOpen = true
+ShowCodeCopyButtons = true
