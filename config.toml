@@ -36,6 +36,11 @@ name = "Posts"
 url = "posts/"
 weight = 10
 
+[[menu.main]]
+name = "About"
+url = "https://github.com/harishtpj"
+weight = 10
+
 # Adds Search engine
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
