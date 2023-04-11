@@ -33,7 +33,7 @@ capabilities to create a virtual machine
 
 # The SUBLEQ VM
 
-Virtual Machine softwares, basically take a program written in assembly instruction of another language and 
+Virtual Machine softwares, basically take a program written in assembly instruction of another architecture and 
 interprets it to run on the actual architecture. So, to implement a VM, we need to choose a architecture 
 amongst the following:
 
@@ -62,7 +62,7 @@ logical understanding of program).
 
 # Prerequisites
 
-To make this VM, you just need a Ada compiler(I used [GNAT Ada]((https://www.gnu.org/software/gnat)) 
+To make this VM, you just need a Ada compiler(I used [GNAT Ada](https://www.gnu.org/software/gnat)
 compiler) and basic knowledge about Ada programming langauge.
 
 # Setup
@@ -221,7 +221,7 @@ This command would execute the `"Hello, world!"` program which is stored in `hel
 
 # Mission accomplished
 
-Yay! now you've made a VM in just 62 lines of Ada. You can check out the source of this project [here](https://github.com/harishtpj/Memoria). This VM can execute more complex commands using multiple SUBLEQ instructions. If you’re interested in this topic and want to expand more, there is a lot of resources out there on the internet. I've also personally wrote a [More complex VM](https://github.com/harishtpj/RAM-VM) and also a [CHIP-8](https://github.com/harishtpj/Chip8-CPU) emulator.
+Yay! now you've made a VM in just **62 lines of Ada**. You can check out the source of this project [here](https://github.com/harishtpj/Memoria). This VM can execute more complex commands using multiple SUBLEQ instructions. If you’re interested in this topic and want to expand more, there is a lot of resources out there on the internet. I've also personally wrote a [More complex VM](https://github.com/harishtpj/RAM-VM) and also a [CHIP-8](https://github.com/harishtpj/Chip8-CPU) emulator.
 
 If you've liked this article, [star](https://github.com/harishtpj/Memoria) my memoria github repository. If you need to suggest any changes, feel free to create an [Issue](https://github.com/harishtpj/Memoria/issues) at my repo.
 
