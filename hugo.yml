@@ -1,0 +1,217 @@
+baseURL: https://harishtpj.github.io/
+languageCode: en-US
+title: The Math Coder
+theme: "hugo-narrow"
+
+enableEmoji: true
+
+permalinks:
+  posts: /posts/:slug/
+  pages: /:slug/
+  
+pagination:
+  pagerSize: 6
+  path: "page"
+
+menus:
+  main:
+    - name: "Posts"
+      pageRef: /posts
+      weight: 20
+      params:
+        icon: posts
+    - name: "Categories"
+      pageRef: /categories
+      weight: 30
+      params:
+        icon: categories
+    - name: "Tags"
+      pageRef: /tags
+      weight: 40
+      params:
+        icon: tags
+    - name: "Archives"
+      pageRef: /archives
+      weight: 50
+      params:
+        icon: archive
+
+
+  # footer menu
+  footer:
+    - name: About
+      pageRef: /about
+      weight: 10
+      params:
+        icon: about
+
+  # footer social link
+  social:
+    - name: GitHub
+      url: https://github.com/harishtpj
+      weight: 10
+      params:
+        icon: github
+    - name: GitLab
+      url: https://gitlab.com/harishtpj
+      weight: 10
+      params:
+        icon: gitlab
+    - name: Email
+      url: mailto:harishtpj@gmail.com
+      weight: 20
+      params:
+        icon: email
+
+params:
+  # Basic site info with SEO
+  description: "Where code meets computational thinking"
+  keywords: ["Math", "Computer Science", "Programming", "Algorithms", "Logic"]
+  defaultAuthor: "M.V. Harish Kumar"
+  language: "en-US"
+  shortName: "The Math Coder"  # PWA
+  images:
+  - "/images/og-default.avif"
+
+  logo:
+    image: "/images/logo.svg"  # Logo path rel to static folder, leave empty use site title and primary color
+    link: "/"                  # click to home page
+  favicon:
+    svg: "/favicon.svg"        # SVG format favicon (recommended)
+
+
+  author:
+    name: "M.V. Harish Kumar"
+    title: "Programmer & Math Enthusiast"
+    description: "A Blog to express my discoveries and findings in Math and Computer Science"
+    avatar: "/images/avatar.svg"
+    social:
+      - name: "GitHub"
+        url: "https://github.com/harishtpj"
+        icon: "github"
+      - name: "GitLab"
+        url: "https://gitlab.com/harishtpj"
+        icon: "gitlab"
+      - name: "Email"
+        url: "mailto:harishtpj@gmail.com"
+        icon: "email"
+
+  # UI Components Control
+  showThemeSwitch: false
+  showDarkModeSwitch: true
+  showLanguageSwitch: false
+
+  # Header sticky effect
+  stickyHeader: true
+
+  # default color scheme
+  colorScheme: "twitter"
+
+  home:
+    recentPostsCount: 5 # Number of recent posts to show on the home page
+
+  post:
+    showRelated: true           # show related posts
+    relatedPostsCount: 3        # posts number
+  
+    license:
+      show: false
+      author: "Harish Kumar"
+      name: "CC BY-NC-SA 4.0"
+      description: "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Please attribute the source, use non-commercially, and maintain the same license."
+      url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      displayName: "CC BY-NC-SA 4.0"
+
+  # comments
+  comments:
+    enabled: false
+
+
+  katex:
+    enabled: false
+    delimiters:
+      - left: "$$"
+        right: "$$"
+        display: true
+      - left: "$"
+        right: "$"
+        display: false
+      - left: "\\("
+        right: "\\)"
+        display: false
+      - left: "\\["
+        right: "\\]"
+        display: true
+      
+  mermaid:
+    enabled: false
+
+  # GLightbox
+  lightbox:
+    enabled: false
+    loop: true
+    width: 80vw
+    height: 80vh
+    touchNavigation: true
+    draggable: true
+    zoomable: true
+    preload: true
+    descPosition: bottom
+
+  # Justified Gallery
+  justified_gallery:
+    enabled: false
+    rowHeight: 300
+    gutter: 30
+    lastRow: center
+    transitionDuration: 0.3s
+    resizeDebounce: 100
+    rowHeightTolerance: 0.25
+    maxRowsCount: 999999
+    calculateItemsHeight: false
+
+markup:
+  tableOfContents:
+    startLevel: 2
+    endLevel: 4
+    ordered: false
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    lineNos: false
+    lineNumbersInTable: false # Set to false
+    noClasses: false
+    style: github # No need to change
+    tabWidth: 2
+
+codeblock:
+  collapse:
+    enabled: true
+    defaultState: expanded  # expanded, collapsed
+    autoCollapseLines: 30
+    autoCollapseHeight: 400
+    collapsedHeight: 120
+
+readingProgress:
+  enabled: true
+  height: 3
+  showOnHomepage: false
+  smoothScroll: true
+  hideOnComplete: false
+
+outputs:
+  home: ["HTML", "RSS", "JSON", "WebAppManifest"]
+
+outputFormats:
+  WebAppManifest:
+    mediaType: "application/manifest+json"
+    baseName: "site"
+    isPlainText: true
+
+module:
+  hugoVersion:
+    extended: true
+    min: 0.146.0

@@ -1,13 +1,15 @@
 ---
 title: "Write your own Virtual Machine in 62 lines of Ada"
 summary: This tutorial guides you to create a simple VM using Ada
-author: "M.V.Harish kumar"
+author: "M.V. Harish kumar"
 date: 2023-04-09T12:21:33+05:30
+categories: ["Tutorials"]
 tags: ["VM", "Ada", "SUBLEQ"]
+slug: ada_vm
 draft: false
 ---
 
-# What is Virtual Machine(VM)
+## What is Virtual Machine(VM)
 
 For those who never had an Idea about it, here is a short excrept from wikipedia
 
@@ -22,7 +24,7 @@ very helpful in many ways:
 - Helps in making **old softwares usable** (eg: running old DOS games on a Windows 10/Android).
 - Helps in **Easy Backup** and **Isolation** which are very helpful during software testing.
 
-## Why Ada?
+### Why Ada?
 
 Ada is a Programming language created for making **reliable**, **efficient** and safe for use in 
 **Mission critical systems**. It is created for use in Defense and Aerospace technology. But now, it's usage 
@@ -31,7 +33,7 @@ is getting low due to the advent of programming language such as Python, Java, e
 Also, I made this VM using Ada to give it a try. Why not Ada? being such a type-safe language, it has all the 
 capabilities to create a virtual machine
 
-# The SUBLEQ VM
+## The SUBLEQ VM
 
 Virtual Machine softwares, basically take a program written in assembly instruction of another architecture and 
 interprets it to run on the actual architecture. So, to implement a VM, we need to choose a architecture 
@@ -60,12 +62,12 @@ Where `src`, `dest` and `branch` are arguments of the SUBLEQ instruction. Also, 
 This architecture is choosen to build a simple, but fast VM which you can make it within 15 minutes(includes 
 logical understanding of program).
 
-# Prerequisites
+## Prerequisites
 
 To make this VM, you just need a Ada compiler(I used [GNAT Ada](https://www.gnu.org/software/gnat)
 compiler) and basic knowledge about Ada programming langauge.
 
-# Setup
+## Setup
 
 Just `cd` in your project folder and create a directory for the project by running the following commands
 
@@ -77,7 +79,7 @@ $ cd memoria
 In the above commands, we create a directory to store our VM(I'm calling it Memoria) and make it as our 
 current directory. Now create a file named `vm.adb` and open it using your favourite editor.
 
-# Package Imports and Declarations
+## Package Imports and Declarations
 
 Let us start the program by importing necessary packages.
 
@@ -104,7 +106,7 @@ Then we declare a type `Code_Arr` which is a simple array and it has 256 locatio
 variable `Program`, `Num` and `Mindex` are created to load our program from file to program memory(i.e., into 
 `Memory` variable)
 
-# Making the VM
+## Making the VM
 
 The SUBLEQ VM is internally created as a Procedure:
 
@@ -170,7 +172,7 @@ include a `exception` to catch up error thrown while running any specific SUBLEQ
 
 By the end of this procedure, you've a functional SUBLEQ VM(but it needs some interface with real os).
 
-# Reading stored Programs
+## Reading stored Programs
 
 Now, we're ready with a VM. But we need to access the program files to execute it. Thus, we need to read the 
 program file and load it into our memory.
@@ -206,7 +208,7 @@ include the code to handle if argument haven't supplied by the user. Then, we do
 
 Now we have a fully functional VM which can execute programs stored in file.
 
-# Running "Hello, world!"
+## Running "Hello, world!"
 
 The first program to test in our VM is to print `"Hello, world!"` on to the screen. For that I've a premade [hello_world program](https://github.com/harishtpj/Memoria/blob/master/hello.txt). Just download it, and pass the file as a commandline argument to the program.
 
@@ -219,10 +221,10 @@ $ ./memoria hello.txt
 
 This command would execute the `"Hello, world!"` program which is stored in `hello.txt` file.
 
-# Mission accomplished
+## Mission accomplished
 
 Yay! now you've made a VM in just **62 lines of Ada**. You can check out the source of this project [here](https://github.com/harishtpj/Memoria). This VM can execute more complex commands using multiple SUBLEQ instructions. If you’re interested in this topic and want to expand more, there is a lot of resources out there on the internet. I've also personally wrote a [More complex VM](https://github.com/harishtpj/RAM-VM) and also a [CHIP-8](https://github.com/harishtpj/Chip8-CPU) emulator.
 
-If you've liked this article, [star](https://github.com/harishtpj/Memoria) my memoria github repository. If you need to suggest any changes, feel free to create an [Issue](https://github.com/harishtpj/Memoria/issues) at my repo.
+If you've liked this article, [star](https://github.com/harishtpj/Memoria) my memoria github repository. If you need to suggest any changes, feel free to create an [issue](https://github.com/harishtpj/Memoria/issues) at my repo.
 
 Thanks for Reading!
