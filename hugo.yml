@@ -54,12 +54,12 @@ menus:
         icon: github
     - name: GitLab
       url: https://gitlab.com/harishtpj
-      weight: 10
+      weight: 20
       params:
         icon: gitlab
     - name: Email
       url: mailto:harishtpj@gmail.com
-      weight: 20
+      weight: 30
       params:
         icon: email
 
@@ -71,7 +71,7 @@ params:
   language: "en-US"
   shortName: "The Math Coder"  # PWA
   images:
-  - "/images/og-default.avif"
+  - "/images/cover.png"
 
   logo:
     image: "/images/logo.svg"  # Logo path rel to static folder, leave empty use site title and primary color
@@ -82,7 +82,7 @@ params:
 
   author:
     name: "M.V. Harish Kumar"
-    title: "Programmer & Math Enthusiast"
+    title: "The Math Coder"
     description: "A Blog to express my discoveries and findings in Math and Computer Science"
     avatar: "/images/avatar.svg"
     social:

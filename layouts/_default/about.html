@@ -1,0 +1,592 @@
+{{ define "main" }}
+<article class="post">
+    <div class="post-content">
+        <!-- Resume Content Starts Here -->
+        <style>
+            .resume-container {
+                max-width: 8.5in;
+                margin: 0 auto;
+                font-family: 'Calibri', 'Arial', sans-serif;
+                font-size: 11pt;
+                line-height: 1.4;
+                color: var(--text-color, #333);
+                background-color: transparent;
+                transition: color 0.3s ease, background-color 0.3s ease;
+            }
+
+            /* Dark mode support */
+            @media (prefers-color-scheme: dark) {
+                .resume-container {
+                    color: #e0e0e0;
+                }
+                
+                .resume-header {
+                    border-bottom-color: #4a7bc8;
+                }
+                
+                .resume-section-title {
+                    color: #4a7bc8;
+                    border-bottom-color: #4a7bc8;
+                }
+                
+                .resume-name {
+                    color: #4a7bc8;
+                }
+                
+                .resume-title {
+                    color: #b0b0b0;
+                }
+                
+                .resume-contact {
+                    color: #b0b0b0;
+                }
+                
+                .resume-contact a {
+                    color: #4a7bc8;
+                }
+                
+                .project-description {
+                    color: #b0b0b0;
+                }
+                
+                .project-description a {
+                    color: #4a7bc8;
+                }
+                
+                .summary-text {
+                    color: #b0b0b0;
+                }
+                
+                .certificate-item {
+                    background: rgba(42, 42, 42, 0.6);
+                    border-left-color: #e67e22;
+                }
+                
+                .skill-category h4 {
+                    color: #4a7bc8;
+                }
+                
+                .github-link {
+                    color: #4a7bc8;
+                }
+                
+                .github-link a {
+                    color: #4a7bc8;
+                }
+            }
+
+            /* Support for manual dark mode classes */
+            .dark .resume-container,
+            [data-theme="dark"] .resume-container {
+                color: #e0e0e0;
+            }
+            
+            .dark .resume-header,
+            [data-theme="dark"] .resume-header {
+                border-bottom-color: #4a7bc8;
+            }
+            
+            .dark .resume-section-title,
+            [data-theme="dark"] .resume-section-title {
+                color: #4a7bc8;
+                border-bottom-color: #4a7bc8;
+            }
+            
+            .dark .resume-name,
+            [data-theme="dark"] .resume-name {
+                color: #4a7bc8;
+            }
+            
+            .dark .resume-title,
+            [data-theme="dark"] .resume-title {
+                color: #b0b0b0;
+            }
+            
+            .dark .resume-contact,
+            [data-theme="dark"] .resume-contact {
+                color: #b0b0b0;
+            }
+            
+            .dark .resume-contact a,
+            [data-theme="dark"] .resume-contact a {
+                color: #4a7bc8;
+            }
+            
+            .dark .project-description,
+            [data-theme="dark"] .project-description {
+                color: #b0b0b0;
+            }
+            
+            .dark .project-description a,
+            [data-theme="dark"] .project-description a {
+                color: #4a7bc8;
+            }
+            
+            .dark .summary-text,
+            [data-theme="dark"] .summary-text {
+                color: #b0b0b0;
+            }
+            
+            .dark .certificate-item,
+            [data-theme="dark"] .certificate-item {
+                background: rgba(42, 42, 42, 0.6);
+                border-left-color: #e67e22;
+            }
+            
+            .dark .skill-category h4,
+            [data-theme="dark"] .skill-category h4 {
+                color: #4a7bc8;
+            }
+            
+            .dark .github-link,
+            [data-theme="dark"] .github-link {
+                color: #4a7bc8;
+            }
+            
+            .dark .github-link a,
+            [data-theme="dark"] .github-link a {
+                color: #4a7bc8;
+            }
+
+            .resume-header {
+                text-align: center;
+                border-bottom: 2px solid #2c5aa0;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+            }
+
+            .resume-name {
+                font-size: 24pt;
+                font-weight: bold;
+                color: #2c5aa0;
+                margin-bottom: 5px;
+            }
+
+            .resume-title {
+                font-size: 14pt;
+                color: #666;
+                margin-bottom: 15px;
+                font-style: italic;
+            }
+
+            .resume-contact {
+                font-size: 10pt;
+                color: #555;
+            }
+
+            .resume-contact span {
+                margin: 0 15px;
+            }
+
+            .resume-contact a {
+                color: #2c5aa0;
+                text-decoration: none;
+            }
+
+            .resume-contact a:hover {
+                text-decoration: underline;
+            }
+
+            .resume-section {
+                margin-bottom: 18px;
+            }
+
+            .resume-section-title {
+                font-size: 14pt;
+                font-weight: bold;
+                color: #2c5aa0;
+                border-bottom: 1px solid #2c5aa0;
+                margin-bottom: 12px;
+                padding-bottom: 2px;
+            }
+
+            .education-item {
+                margin-bottom: 10px;
+            }
+
+            .education-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-weight: bold;
+                margin-bottom: 3px;
+                flex-wrap: wrap;
+            }
+
+            .education-title {
+                font-size: 12pt;
+            }
+
+            .education-score {
+                background: #2c5aa0;
+                color: white;
+                padding: 2px 8px;
+                border-radius: 3px;
+                font-size: 10pt;
+            }
+
+            .highlight {
+                background: #e67e22;
+                color: white;
+                padding: 1px 4px;
+                border-radius: 2px;
+                font-size: 9pt;
+                margin-left: 5px;
+            }
+
+            .skills-section {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .skill-category {
+                margin-bottom: 10px;
+            }
+
+            .skill-category h4 {
+                font-size: 11pt;
+                font-weight: bold;
+                color: #2c5aa0;
+                margin-bottom: 5px;
+            }
+
+            .skill-list {
+                font-size: 10pt;
+                line-height: 1.3;
+            }
+
+            .projects-section {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 15px;
+            }
+
+            .project-item {
+                margin-bottom: 12px;
+                border-left: 3px solid #2c5aa0;
+                padding-left: 10px;
+            }
+
+            .project-title {
+                font-size: 11pt;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 3px;
+            }
+
+            .project-tech {
+                font-size: 9pt;
+                color: white;
+                background: #666;
+                padding: 1px 5px;
+                border-radius: 2px;
+                display: inline-block;
+                margin-bottom: 5px;
+            }
+
+            .project-description {
+                font-size: 10pt;
+                color: #555;
+                line-height: 1.3;
+            }
+
+            .project-description a {
+                color: #2c5aa0;
+                text-decoration: none;
+            }
+
+            .project-description a:hover {
+                text-decoration: underline;
+            }
+
+            .certificates-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 8px;
+            }
+
+            .certificate-item {
+                font-size: 10pt;
+                padding: 5px 8px;
+                background: #f8f9fa;
+                border-left: 3px solid #e67e22;
+                margin-bottom: 5px;
+            }
+
+            .fullstack-badge {
+                background: #2c5aa0;
+                color: white;
+                text-align: center;
+                padding: 8px 15px;
+                border-radius: 5px;
+                font-weight: bold;
+                margin: 15px 0;
+                font-size: 11pt;
+            }
+
+            .summary-text {
+                font-size: 10pt;
+                line-height: 1.4;
+                text-align: justify;
+                color: #555;
+            }
+
+            .github-link {
+                text-align: center;
+                margin-top: 15px;
+                font-size: 10pt;
+                color: #2c5aa0;
+            }
+
+            .github-link a {
+                color: #2c5aa0;
+                text-decoration: none;
+            }
+
+            .github-link a:hover {
+                text-decoration: underline;
+            }
+
+            .two-column {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 20px;
+            }
+
+            /* Mobile responsiveness */
+            @media (max-width: 768px) {
+                .resume-container {
+                    padding: 10px;
+                    font-size: 10pt;
+                }
+                
+                .resume-name {
+                    font-size: 20pt;
+                }
+                
+                .resume-title {
+                    font-size: 12pt;
+                }
+                
+                .education-header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                
+                .resume-contact span {
+                    margin: 5px 0;
+                    display: block;
+                }
+                
+                .skills-section {
+                    grid-template-columns: 1fr;
+                }
+                
+                .projects-section {
+                    grid-template-columns: 1fr;
+                }
+                
+                .certificates-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            /* Print styles */
+            @media print {
+                .resume-container {
+                    max-width: none;
+                    margin: 0;
+                    font-size: 10pt;
+                }
+                
+                .skills-section,
+                .projects-section,
+                .certificates-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+
+        <div class="resume-container">
+            <div class="resume-header">
+                <div class="resume-name">M.V. HARISH KUMAR</div>
+                <div class="resume-title">Full-Stack Developer & Systems Programmer</div>
+                <div class="resume-contact">
+                    📧 <a href="mailto:harishtpj@gmail.com">harishtpj@gmail.com</a> <span>|</span> 
+                    📞 +91 9940559664 <span>|</span> 
+                    📍 Chennai, Tamil Nadu, India <span>|</span> 
+                    🔗 <a href="https://github.com/harishtpj">github.com/harishtpj</a>
+                </div>
+            </div>
+
+            <div class="fullstack-badge">
+                ✨ Full-Stack Developer with deep knowledge in Low-Level & High-Level Programming
+            </div>
+
+            <div class="resume-section">
+                <h2 class="resume-section-title">ACADEMIC PROFILE</h2>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">B.Tech Computer Science & Engineering - VIT Chennai (Present)</div>
+                        <div class="education-score">Current <span class="highlight">First Year</span></div>
+                    </div>
+                    <div style="font-size: 10pt; color: #666;">Vellore Institute of Technology, Chennai | JEE Main: 95.187 percentile</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">CBSE Grade 12 - Velammal Vidhyashram, Surapet (2025)</div>
+                        <div class="education-score">492/500 <span class="highlight">2 Centums</span></div>
+                    </div>
+                    <div style="font-size: 10pt; color: #666;">CS: 100 | Chemistry: 100 | Math: 99 | Physics: 98 | English: 95</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">CBSE Grade 10 - Velammal Newgen School, Thiruvottiyur (2023)</div>
+                        <div class="education-score">471/500 <span class="highlight">1 Centum</span></div>
+                    </div>
+                    <div style="font-size: 10pt; color: #666;">Tamil: 100 | Math: 98 | Social: 95 | Science: 94 | English: 84</div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2 class="resume-section-title">TECHNICAL SKILLS</h2>
+                <div class="skills-section">
+                    <div class="skill-category">
+                        <h4>Core Programming Languages</h4>
+                        <div class="skill-list">C, C++, Python, Java, C#, JavaScript, PHP, Go</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Web Development</h4>
+                        <div class="skill-list">HTML5, CSS3, PHP, REST APIs, Full-Stack Development, Web Services</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Database Management</h4>
+                        <div class="skill-list">Oracle, MySQL, PostgreSQL, SQLite, MongoDB, Redis</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Networking & Security</h4>
+                        <div class="skill-list">Socket Programming, Firewall Configuration, ISP Routing, Virtual LAN (VLAN), VPN Connections, AWS SAP Connector, Network Security Fundamentals</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Systems & Hardware Programming</h4>
+                        <div class="skill-list">CISC (Intel), RISC (Power/SPARC), Arduino, Microbit, OS Development, Kernel Programming, Embedded Systems</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>AI & Machine Learning</h4>
+                        <div class="skill-list">Computer Vision, Image Recognition, Voice Processing, Natural Language Processing, Data Analysis, AI-Powered Applications</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Enterprise & Development Tools</h4>
+                        <div class="skill-list">Oracle Forms 10g, ERP Development, Git/GitHub, Linux/Unix, VMware, Android Development, Compiler Design</div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Additional Programming Languages</h4>
+                        <div class="skill-list">Ruby, Rust, Perl, COBOL, Pascal, Kotlin, Prolog, QBASIC, Smalltalk, LISP, Ada, Lua, Julia, Erlang, Elixir, Fortran, Haskell, Assembly Language</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2 class="resume-section-title">NOTABLE PROJECTS</h2>
+                <div class="projects-section">
+                    <div class="project-item">
+                        <div class="project-title">AI Assistant for Disabled People</div>
+                        <div class="project-tech">Micro:bit + AI/ML</div>
+                        <div class="project-description">Developed an AI-powered assistant using micro:bit that recognizes known individuals and reads image descriptions for visually impaired users.</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">Voice-Based Excel Data Assistant</div>
+                        <div class="project-tech">Python + AI/ML</div>
+                        <div class="project-description">Created a Python application that answers questions based on Excel data and responds via voice conversation using NLP and speech synthesis.</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">Custom Programming Languages</div>
+                        <div class="project-tech">Compiler Design</div>
+                        <div class="project-description">Created three complete programming languages from scratch, including lexical analysis, parsing, and code generation.</div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">MKS - Minimal Kernel System</div>
+                        <div class="project-tech">C + x86 Assembly</div>
+                        <div class="project-description">Developed a CLI-based operating system kernel with memory management and system calls.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/harishtpj/MKS">github.com/harishtpj/MKS</a></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">Project Milk - ERP System</div>
+                        <div class="project-tech">Oracle Forms 10g</div>
+                        <div class="project-description">Built comprehensive ERP system for dairy management with inventory, sales, and customer relations.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/harishtpj/Project-Milk">github.com/harishtpj/Project-Milk</a></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">Cafeteria Management System</div>
+                        <div class="project-tech">Python</div>
+                        <div class="project-description">Grade 12 CS project: CLI-based interactive cafeteria management system with menu, orders, and billing.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/harishtpj/Cafeteria-Management-System">github.com/harishtpj/Cafeteria-Management-System</a></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">AutoREST - API Automator</div>
+                        <div class="project-tech">Ruby</div>
+                        <div class="project-description">Automation tool for REST API testing and management with comprehensive workflow capabilities.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/harishtpj/AutoREST">github.com/harishtpj/AutoREST</a></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">thinftp - FTP Server</div>
+                        <div class="project-tech">Python</div>
+                        <div class="project-description">Fully functional FTP server with multi-client support and security features.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/harishtpj/thinftp">github.com/harishtpj/thinftp</a></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">GoDNS - DNS Server</div>
+                        <div class="project-tech">Go</div>
+                        <div class="project-description">Custom DNS server with domain name resolution and multiple record type support.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/harishtpj/GoDNS">github.com/harishtpj/GoDNS</a></div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-title">MiME - Mail Server System</div>
+                        <div class="project-tech">C</div>
+                        <div class="project-description">Implemented complete SMTP mail server with message routing and authentication capabilities.
+                        <br><strong>GitHub:</strong> <a href="https://github.com/harishtpj/MiME">github.com/harishtpj/MiME</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2 class="resume-section-title">CERTIFICATIONS</h2>
+                <div class="certificates-grid">
+                    <div class="certificate-item">UpGrad - Basic Python Programming</div>
+                    <div class="certificate-item">UpGrad - Core Java Basics</div>
+                    <div class="certificate-item">UpGrad - AI in Real World</div>
+                    <div class="certificate-item">UpGrad - Database Design with MySQL</div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2 class="resume-section-title">PROFESSIONAL SUMMARY</h2>
+                <div class="summary-text">
+                    Full-stack developer with programming experience from school level since 2017. Proficient in 20+ programming languages with expertise spanning web development, systems programming, networking, cybersecurity, and AI/ML applications. Demonstrated ability to build complex projects from scratch, including operating systems, compilers, network services, and AI-powered assistive technologies. Strong academic performance with exceptional grades in Computer Science and qualification in JEE Advanced. Experienced in both CISC and RISC processor architectures, microcontroller programming, and enterprise application development. Deep interest in emerging technologies including Quantum Computing, Artificial Intelligence, and Machine Learning. Proven expertise in networking fundamentals, socket programming, and VPN configurations through multiple server implementation projects. Seeking opportunities to contribute technical expertise and innovative problem-solving skills to challenging software development projects in cutting-edge domains.
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2 class="resume-section-title">ADDITIONAL INFORMATION</h2>
+                <div class="two-column">
+                    <div>
+                        <strong>Date of Birth:</strong> March 6, 2007<br>
+                        <strong>Father's Name:</strong> M. Venkatesan<br>
+                        <strong>Mother's Name:</strong> V. Janani<br>
+                        <strong>Address:</strong> No 18, South Telephone Colony, 2nd Street, Madhavaram Milk Colony, Chennai – 600051
+                    </div>
+                    <div>
+                        <strong>Research Interests:</strong> Computer Technology Research, Quantum Computing, Artificial Intelligence & Machine Learning<br>
+                        <strong>Specializations:</strong> Systems Programming, Compiler Design, Network Programming, CISC/RISC Architecture, AI/ML Applications<br>
+                        <strong>Languages Known:</strong> English, Tamil
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Resume Content Ends Here -->
+    </div>
+</article>
+{{ end }}
