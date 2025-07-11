@@ -84,7 +84,7 @@ params:
     name: "M.V. Harish Kumar"
     title: "The Math Coder"
     description: "A Blog to express my discoveries and findings in Math and Computer Science"
-    avatar: "/images/avatar.svg"
+    avatar: "/images/avatar.png"
     social:
       - name: "GitHub"
         url: "https://github.com/harishtpj"
