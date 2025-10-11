@@ -1,7 +1,7 @@
 ---
-title: "Write your own Virtual Machine in 62 lines of Ada"
+title: Write your own Virtual Machine in 62 lines of Ada
 summary: This tutorial guides you to create a simple VM using Ada
-author: "M.V. Harish kumar"
+author: Harish Kumar
 date: 2023-04-09T12:21:33+05:30
 categories: ["Tutorials"]
 tags: ["VM", "Ada", "SUBLEQ"]

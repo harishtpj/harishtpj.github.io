@@ -1,5 +1,6 @@
 baseURL: https://harishtpj.github.io/
 languageCode: en-US
+defaultContentLanguage: en
 title: The Math Coder
 theme: "hugo-narrow"
 
@@ -47,19 +48,24 @@ menus:
 
   # footer social link
   social:
+    - name: LinkedIn
+      url: https://www.linkedin.com/in/harishtpj
+      weight: 10
+      params:
+        icon: linkedin
     - name: GitHub
       url: https://github.com/harishtpj
-      weight: 10
+      weight: 20
       params:
         icon: github
     - name: GitLab
       url: https://gitlab.com/harishtpj
-      weight: 20
+      weight: 30
       params:
         icon: gitlab
     - name: Email
       url: mailto:harishtpj@gmail.com
-      weight: 30
+      weight: 40
       params:
         icon: email
 
@@ -86,6 +92,9 @@ params:
     description: "A Blog to express my discoveries and findings in Math and Computer Science"
     avatar: "/images/avatar.png"
     social:
+      - name: "LinkedIn"
+        url: "https://www.linkedin.com/in/harishtpj"
+        icon: "linkedin"
       - name: "GitHub"
         url: "https://github.com/harishtpj"
         icon: "github"
@@ -116,7 +125,7 @@ params:
   
     license:
       show: false
-      author: "Harish Kumar"
+      author: Harish Kumar
       name: "CC BY-NC-SA 4.0"
       description: "This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Please attribute the source, use non-commercially, and maintain the same license."
       url: "https://creativecommons.org/licenses/by-nc-sa/4.0/"
