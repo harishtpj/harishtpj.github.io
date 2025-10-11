@@ -277,7 +277,7 @@ n           resq 1
 
 As before, we `extern` some built-in functions and declare template strings along with a new, strange looking tempFmtStr variable (will be discussed in a minute).
 
-We allocate 10 bytes for the inputFmtStr since the final generated format string looks as follows:
+We allocate 7 bytes for the inputFmtStr since the final generated format string looks as follows:
 
 ```c
 "%<n>d", 0
