@@ -41,7 +41,7 @@ menus:
   # footer menu
   footer:
     - name: About
-      pageRef: /about
+      url: https://harishtpj.netlify.app/
       weight: 10
       params:
         icon: about
