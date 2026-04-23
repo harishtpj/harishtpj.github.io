@@ -63,11 +63,6 @@ menus:
       weight: 30
       params:
         icon: gitlab
-    - name: Email
-      url: mailto:harishtpj@gmail.com
-      weight: 40
-      params:
-        icon: email
 
 params:
   # Basic site info with SEO
@@ -79,15 +74,20 @@ params:
   images:
   - "/images/cover.png"
 
-  logo:
-    image: "/images/logo.svg"  # Logo path rel to static folder, leave empty use site title and primary color
-    link: "/"                  # click to home page
-  favicon:
-    svg: "/favicon.svg"        # SVG format favicon (recommended)
+  header:
+    sticky: true
+    showThemeSwitch: false
+    showDarkModeSwitch: true
+    showLanguageSwitch: false
+    logo:
+      image: "/images/logo.svg"  # Logo path rel to static folder, leave empty use site title and primary color
+      link: "/"                  # click to home page
+    favicon:
+      svg: "/favicon.svg"        # SVG format favicon (recommended)
 
 
   author:
-    name: "M.V. Harish Kumar"
+    name: "M.V.Harish Kumar"
     title: "The Math Coder"
     description: "A Blog to express my discoveries and findings in Math and Computer Science"
     avatar: "/images/avatar.png"
@@ -101,17 +101,6 @@ params:
       - name: "GitLab"
         url: "https://gitlab.com/harishtpj"
         icon: "gitlab"
-      - name: "Email"
-        url: "mailto:harishtpj@gmail.com"
-        icon: "email"
-
-  # UI Components Control
-  showThemeSwitch: false
-  showDarkModeSwitch: true
-  showLanguageSwitch: false
-
-  # Header sticky effect
-  stickyHeader: true
 
   # default color scheme
   colorScheme: "twitter"
