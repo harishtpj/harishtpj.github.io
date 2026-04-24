@@ -31,11 +31,11 @@ menus:
       weight: 40
       params:
         icon: tags
-    - name: "Archives"
-      pageRef: /archives
+    - name: "Timeline"
+      pageRef: /timeline
       weight: 50
       params:
-        icon: archive
+        icon: clock
 
 
   # footer menu
